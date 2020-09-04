@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-
+//commit
     @Override
     public void createUsersTable() {
         Transaction transaction = null;
@@ -58,14 +58,13 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @Override
     public List<User> getAllUsers() {
-        List <User> listUsers = new ArrayList<>();
-        Transaction transaction = null;
+        List <User> listUsers;
         Session session = Util.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
+        session.beginTransaction();
         String queryStr = "select * from users";
         Query query = session.createSQLQuery(queryStr);
         listUsers = query.list();
-        transaction.commit();
+        session.getTransaction().commit();
         System.out.println(listUsers);
         session.close();
         return listUsers;

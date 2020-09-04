@@ -15,10 +15,7 @@ public class Main {
 ////        us.createUsersTable();
 ////        us.createUsersTable();
 ////        us.cleanUsersTable();
-        us.dropUsersTable();
-        us.createUsersTable();
-        byte agebyte = 3;
-        us.saveUser("ivan", "ivanov", agebyte);
-        User user = us.getAllUsers().get(0);
+        us.saveUser("ivan", "ivanov", (byte)3);
+        System.out.println(us.getAllUsers().get(0).toString());
     }
 }
